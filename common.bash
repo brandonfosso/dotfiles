@@ -1,0 +1,44 @@
+# common bash preferences
+
+## TAB COMPLETION
+# case insensitive tab completion
+bind "set completion-ignore-case on"
+bind "set show-all-if-ambiguous on"
+
+# git tab completion
+source ~/.git-completion.bash
+
+complete -d cd
+#==========================================================
+
+## ENVIRONMENT VARS
+# coloring
+export CLICOLOR=1
+export LSCOLORS=ExFxBxDxCxegedabagacad
+#==========================================================
+
+## PROMPT STRING
+# solarized color codes in iTerm
+BLACK="\[\033[0;90m\]"
+D_BLUE="\[\033[0;30m\]"
+RED="\[\033[0;31m\]"
+ORANGE="\[\033[0;91m\]"
+GREEN="\[\033[0;32m\]"
+D_GRAY="\[\033[0;92m\]"
+YELLOW="\[\033[0;33m\]"
+M_GRAY="\[\033[0;93m\]"
+BLUE="\[\033[0;34m\]"
+ML_GRAY="\[\033[0;94m\]"
+MAGENTA="\[\033[0;35m\]"
+VIOLET="\[\033[0;95m\]"
+CYAN="\[\033[0;36m\]"
+L_GRAY="\[\033[0;96m\]"
+L_TAN="\[\033[0;37m\]"
+WHITE="\[\033[0;97m\]"
+RESET="\[\e[00m\]"
+
+#==========================================================
+
+## ALIASES
+alias ls='ls -GFh'
+alias ll='ls -l' 
