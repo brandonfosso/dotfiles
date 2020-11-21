@@ -1,0 +1,11 @@
+[alias]
+    unstage = reset HEAD --
+    last = log -1 HEAD
+    graph = log --decorate --oneline --graph
+    past = log --decorate --oneline --graph -15
+[core]
+	editor = vim
+[credential]
+	helper = store
+[pull]
+	ff = only
