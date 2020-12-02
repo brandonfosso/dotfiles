@@ -5,9 +5,7 @@
 bind "set completion-ignore-case on"
 bind "set show-all-if-ambiguous on"
 
-# git tab completion
-source ~/.git-completion.bash
-
+# only show directories
 complete -d cd
 #==========================================================
 
