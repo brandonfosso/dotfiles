@@ -4,7 +4,7 @@
     graph = log --decorate --oneline --graph
     past = log --decorate --oneline --graph -15
 [core]
-	editor = vim
+	editor = nano
 [credential]
 	helper = store
 [pull]
