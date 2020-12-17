@@ -17,6 +17,8 @@ set tabstospaces
 #set zap
 
 ## Syntax Highlighting
+# As we want more, grab them from the web and place them syntax
+# Default syntax files are usually around /usr/local/share/nano
 include ~/dotfiles/nano/syntax/*
 
 ## Keybindings
