@@ -10,9 +10,6 @@ complete -d cd
 #==========================================================
 
 ## ENVIRONMENT VARS
-# coloring
-export CLICOLOR=1
-export LSCOLORS=ExFxBxDxCxegedabagacad
 #==========================================================
 
 ## PROMPT STRING
