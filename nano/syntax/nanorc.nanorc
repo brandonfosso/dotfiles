@@ -57,7 +57,7 @@ icolor green "^[[:space:]]*(bind|set|unset|syntax|header|include|magic)\>"
 ## Strings
 icolor normal ""(\\.|[^"])*""
 ## Comments
-icolor blue "^[[:space:]]*#.*$"
+icolor cyan "^[[:space:]]*#.*$"
 icolor cyan "^[[:space:]]*##.*$"
 
 ## Trailing whitespace
