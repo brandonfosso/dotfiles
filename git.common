@@ -4,8 +4,8 @@
     graph = log --decorate --oneline --graph
     past = log --decorate --oneline --graph -15
 [core]
-	editor = nano
+    editor = nano
 [credential]
-	helper = store
+    helper = store
 [pull]
-	ff = only
+    ff = only
