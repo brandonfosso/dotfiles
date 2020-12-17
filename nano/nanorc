@@ -1,0 +1,44 @@
+## Options
+set autoindent
+set cutfromcursor
+set guidestripe 88
+set linenumbers
+set historylog
+set linenumbers
+set mouse
+set nonewlines
+set positionlog
+#set saveonexit
+#set suspendable
+set smarthome
+set tabsize 4
+set tabstospaces
+#set wordbounds
+#set zap
+
+## Syntax Highlighting
+include ~/dotfiles/nano/syntax/*
+
+## Keybindings
+bind M-g gotoline main
+bind ^q exit main
+bind ^w savefile main
+
+bind ^s whereis main
+bind ^r replace main
+bind M-n findnext main
+bind M-p findprevious main
+
+bind ^y paste main
+bind M-h chopwordleft main
+bind M-d chopwordright main
+
+bind M-m mark main
+bind M-] indent main
+bind M-[ unindent main
+bind M-c comment main
+
+bind M-b prevword main
+bind M-f nextword main
+bind M-n pagedown main
+bind M-p pageup main
