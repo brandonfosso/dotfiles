@@ -1,46 +1,254 @@
-## Options
-set autoindent
-set cutfromcursor
-set guidestripe 88
-set linenumbers
-set historylog
-set linenumbers
-set mouse
-set nonewlines
-set positionlog
-#set saveonexit
-#set suspendable
-set smarthome
+## Command Line Usage
+# -Y <name> to use specific syntax file
+# -t to save on exit
+# -v to view only
+
+## Editor Settings
+## some can be toggled while running
+# editing
+set cutfromcursor   # cut/copy/zap from cursor pos to EoL instead of whole line
+# navigation
+set smarthome       # soft BoL on first press
+# formatting
+set autoindent      # follow previous line
+set nonewlines      # don't add newline fo EoF
 set tabsize 4
-set tabstospaces
-#set wordbounds
-#set zap
+set tabstospaces    # expand tabs as spaces
+# UI
+set linenumbers
+set guidestripe 88
+set stripecolor ,yellow
+set mouse
+set softwrap        # display longs lines on multiple rows
+set atblanks        # wrap lines at spaces
+# memory
+set historylog      # remember searchs
+set positionlog     # remember cursor location
 
 ## Syntax Highlighting
 # As we want more, grab them from the web and place them syntax
 # Default syntax files are usually around /usr/local/share/nano
 include ~/dotfiles/nano/syntax/*
 
-## Keybindings
-bind M-g gotoline main
-bind ^q exit main
-bind ^w savefile main
+### Keybindings (by context)
+### DO NOT bind ^m (enter), ^i (tab), ^[ (escape)
+### To use keystrokes in macros, enter them verbatim with M-v
 
-bind ^s whereis main
-bind ^r replace main
-bind M-n findnext main
-bind M-p findprevious main
+# ********** editor (main) **********
+# unbind many of the defaults
+unbind F2 main
+unbind F3 main
+unbind F4 main
+unbind F5 main
+unbind F6 main
+unbind F7 main
+unbind F8 main
+unbind F9 main
+unbind F10 main
+unbind F11 main
+unbind F12 main
 
-bind ^y paste main
-bind M-h chopwordleft main
-bind M-d chopwordright main
+unbind Ins main
 
+unbind M-3 main
+unbind M-6 main
+unbind M-^ main
+unbind M-9 main
+unbind M-( main
+unbind M-0 main
+unbind M-) main
+unbind M-- main
+unbind ^_ main
+unbind M-_ main
+unbind M-= main
+unbind M-+ main
+
+unbind ^q main
+unbind ^w main
+unbind M-e main
+unbind ^t main
+unbind M-t main
+unbind M-y main
+unbind M-u main
+unbind ^] main
+unbind M-] main
+unbind ^\ main
+unbind M-\ main
+
+unbind M-a main
+unbind ^g main
+unbind ^j main
+unbind M-j main
+unbind M-k main
+unbind M-l main
+
+unbind ^x main
+unbind ^v main
+unbind M-/ main
+
+# admin
+bind M-q exit main
+bind M-w savefile main
+bind M-o writeout main
+bind M-{ prevbuf main
+bind M-} nextbuf main
+bind M-x execute main
+bind ^z undo main
+bind M-z redo main
+bind M-i complete main
 bind M-m mark main
-bind M-] indent main
-bind M-[ unindent main
 bind M-c comment main
+bind M-u "fbmfx echo -n  | tr a-z A-Z " main    # bash upper case
+# bind F1 help main             # default junk
+# bind M-v verbatim main        # default
+# bind M-: recordmacro main     # default
+# bind M-; runmacoro main       # default
+# bind ^l  center & refresh     # default (how 2?)
+# bind TAB \t or indent selection   # default
+# bind Sh-TAB unindent line (sel)   # default
 
+# searching
+bind ^r whereis main
+bind M-r wherewas main
+bind ^s findnext main
+bind M-s findprevious main
+bind M-l "fbmf" main    # search for like that under cursor
+
+# cut/copy/paste
+# repeated cuts are cumulative, reset with other commands
+bind ^x cut main            # common alt binding for cut (to EoL/region)
+bind ^k cut main            # cut to EoL (region) [rebound for help menu]
+bind ^u "m" main      # cut to BoL (bash) as a macro
+bind ^w "mrb\<b\sr" main  # bash cut back ext word
+bind M-d "mf" main    # cut to EoW (bash) [motion overwrites clipboard]
+bind M-h "mb" main    # cut to BoW (bash) [motion overwrites cb]
+bind ^c copy main           # copy to EoL (region)
+bind ^v paste main          # common binding
+bind ^y paste main          # from bash
+
+# transposition
+# ^t for fixing typos immediately
+# M-t for fixing typos later
+# no need to bind word transposition
+bind ^t "m" main    # transpose trailing pair
+bind M-t "m" main     # tranpose cursor with prev
+
+# deletion
+# bind ^h backspace main      # default
+# bind ^d delete main         # default
+# bind M-h chopwordleft main
+# bind M-d chopwordright main
+bind ^o zap main            # delete to EoL (region)
+
+## cursor movement
+## within a line (except at ends)
+# bind ^b left main       # default
+# bind ^f right main      # defualt
 bind M-b prevword main
-bind M-f nextword main
-bind M-n pagedown main
-bind M-p pageup main
+# bind M-f nextword main
+bind M-f "r\>r" main    # regex imp of bash fwd word
+# bind ^a home main       # default
+# bind ^e end main        # defualt
+## between lines
+# bind ^p up main         # defualt
+# bind ^n down main       # default
+bind M-n nextblock main
+bind M-p prevblock main
+bind M-< firstline main     # bash history
+bind M-> lastline main      # bash history
+bind M-a firstline main
+bind M-e lastline main
+
+bind ^g gotoline main
+bind M-g findbracket main
+bind M-k anchor main        # set/remove an achor
+bind ^j nextanchor main
+bind M-j prevanchor main
+
+# scrolling
+bind M-. pageup main
+bind M-, pagedown main
+
+# ********** help menu **********
+# note there are some legacy(?) bindings I cannot remove (q, w, x, e, ...)
+unbind ^q help
+unbind ^w help
+unbind M-w help
+unbind ^y help
+unbind ^v help
+unbind M-\ help
+unbind M-/ help
+
+bind M-q exit help
+bind ^r whereis help
+bind ^s findnext help
+bind M-s findprevious help
+# bind ^p prevline help     # default
+# bind ^n nextline help     # default
+bind M-, pagedown help
+bind M-. pageup help
+bind M-< firstline help
+bind M-> lastline help
+bind M-a firstline help
+bind M-e lastline help
+
+# ********** search menu **********
+unbind ^g search
+unbind ^y search
+unbind ^t search
+
+bind F1 help search
+bind ^y paste search
+# bind ^c cancel search     # default
+# bind M-c casesense search # default
+# bind M-r regex search     # default
+# bind M-b backwards search # default
+# bind ^r replace search    # default
+# bind ^p older search      # default
+# bind ^n newer search      # default
+
+# ********** execute menu **********
+unbind ^g execute
+unbind ^s execute
+unbind ^y execute
+unbind ^j execute
+unbind ^o execute
+unbind ^v execute
+unbind ^z execute
+unbind ^t execute
+unbind M-f execute
+unbind M-\ execute
+
+bind ^y paste execute
+
+# **********************************
+# Keep in mind that the various bindings emulating bash (^u, ^w, ...) are hacks.
+# They are nano macros that mimic what bash does but they aren't perfect. Edge (line
+# and word) cases may not behave as expected and there are often
+# side-effects like polluting the search history or clearing the clipboard.
+#
+# When you want to jump to some place, search instead of navigate.
+# Remember that selections are powerful. Combine with external commands for more.
+#
+# A previous cursor location (or stack) would be nice but I haven't figured out
+# how to access (or store) the location history. Just use marks instead.
+
+## regex basics
+## (some) meta chars
+# . ~ any single character
+# ? ~ prev atom 0 or 1 times
+# * ~ prev atom 0+ times
+# + ~ prev atom 1+ times
+# ^ ~ beginning of line
+# $ ~ end of line
+# \< ~ null string at beginning of  word [[:alnum:]_]
+# \> ~ null string at end of word (same as above)
+# \b ~ word boundary (\B to invert)
+# \s ~ space char (\S to invert)
+#
+## (some) character classes
+# alnum ~ [0-9a-zA-Z]
+# word  ~ [[:alnum:]_]
+# punct ~ non alnum
+# blank ~ [ \t]
+# space ~ [ \t\n\r], whitespace characters
