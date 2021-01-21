@@ -12,15 +12,16 @@ set smarthome       # soft BoL on first press
 # formatting
 set autoindent      # follow previous line
 set nonewlines      # don't add newline fo EoF
-set tabsize 4
+set tabsize 2
 set tabstospaces    # expand tabs as spaces
 # UI
 set linenumbers
 set guidestripe 88
 set stripecolor ,yellow
 set mouse
-set softwrap        # display longs lines on multiple rows
-set atblanks        # wrap lines at spaces
+set stateflags
+#set softwrap        # display longs lines on multiple rows
+#set atblanks        # wrap lines at spaces
 # memory
 set historylog      # remember searchs
 set positionlog     # remember cursor location
@@ -98,6 +99,7 @@ bind M-z redo main
 bind M-i complete main
 bind M-m mark main
 bind M-c comment main
+bind M-y softwrap main  # toggle softwrapping of long lines
 bind M-u "fbmfx echo -n  | tr a-z A-Z " main    # bash upper case
 # bind F1 help main             # default junk
 # bind M-v verbatim main        # default
