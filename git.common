@@ -5,7 +5,5 @@
     past = log --decorate --oneline --graph -15
 [core]
     editor = nano
-[credential]
-    helper = store
 [pull]
     ff = only
