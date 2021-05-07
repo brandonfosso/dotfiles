@@ -11,7 +11,6 @@ set cutfromcursor   # cut/copy/zap from cursor pos to EoL instead of whole line
 set smarthome       # soft BoL on first press
 # formatting
 set autoindent      # follow previous line
-set nonewlines      # don't add newline fo EoF
 set tabsize 2
 set tabstospaces    # expand tabs as spaces
 # UI
@@ -19,7 +18,6 @@ set linenumbers
 set guidestripe 88
 set stripecolor ,yellow
 set mouse
-set stateflags
 #set softwrap        # display longs lines on multiple rows
 #set atblanks        # wrap lines at spaces
 # memory
@@ -93,7 +91,6 @@ bind M-w savefile main
 bind M-o writeout main
 bind M-{ prevbuf main
 bind M-} nextbuf main
-bind M-x execute main
 bind ^z undo main
 bind M-z redo main
 bind M-i complete main
@@ -147,9 +144,6 @@ bind M-e lastline main
 
 bind ^g gotoline main
 bind M-g findbracket main
-bind M-k anchor main        # set/remove an achor
-bind ^j nextanchor main
-bind M-j prevanchor main
 
 # scrolling
 bind M-. pageup main
@@ -192,49 +186,3 @@ bind ^y paste search
 # bind ^r replace search    # default
 # bind ^p older search      # default
 # bind ^n newer search      # default
-
-# ********** execute menu **********
-unbind ^g execute
-unbind ^s execute
-unbind ^y execute
-unbind ^j execute
-unbind ^o execute
-unbind ^v execute
-unbind ^z execute
-unbind ^t execute
-unbind M-f execute
-unbind M-\ execute
-
-bind ^y paste execute
-
-# **********************************
-# Keep in mind that the various bindings emulating bash (^u, ^w, ...) are hacks.
-# They are nano macros that mimic what bash does but they aren't perfect. Edge (line
-# and word) cases may not behave as expected and there are often
-# side-effects like polluting the search history or clearing the clipboard.
-#
-# When you want to jump to some place, search instead of navigate.
-# Remember that selections are powerful. Combine with external commands for more.
-#
-# A previous cursor location (or stack) would be nice but I haven't figured out
-# how to access (or store) the location history. Just use marks instead.
-
-## regex basics
-## (some) meta chars
-# . ~ any single character
-# ? ~ prev atom 0 or 1 times
-# * ~ prev atom 0+ times
-# + ~ prev atom 1+ times
-# ^ ~ beginning of line
-# $ ~ end of line
-# \< ~ null string at beginning of  word [[:alnum:]_]
-# \> ~ null string at end of word (same as above)
-# \b ~ word boundary (\B to invert)
-# \s ~ space char (\S to invert)
-#
-## (some) character classes
-# alnum ~ [0-9a-zA-Z]
-# word  ~ [[:alnum:]_]
-# punct ~ non alnum
-# blank ~ [ \t]
-# space ~ [ \t\n\r], whitespace characters
