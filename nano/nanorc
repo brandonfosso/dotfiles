@@ -100,7 +100,6 @@ bind M-i complete main
 bind M-m mark main
 bind M-c comment main
 bind M-y softwrap main  # toggle softwrapping of long lines
-bind M-u "fbmfx echo -n  | tr a-z A-Z " main    # bash upper case
 # bind F1 help main             # default junk
 # bind M-v verbatim main        # default
 # bind M-: recordmacro main     # default
@@ -114,26 +113,14 @@ bind ^r whereis main
 bind M-r wherewas main
 bind ^s findnext main
 bind M-s findprevious main
-bind M-l "fbmf" main    # search for like that under cursor
 
 # cut/copy/paste
 # repeated cuts are cumulative, reset with other commands
 bind ^x cut main            # common alt binding for cut (to EoL/region)
 bind ^k cut main            # cut to EoL (region) [rebound for help menu]
-bind ^u "m" main      # cut to BoL (bash) as a macro
-bind ^w "mrb\<b\sr" main  # bash cut back ext word
-bind M-d "mf" main    # cut to EoW (bash) [motion overwrites clipboard]
-bind M-h "mb" main    # cut to BoW (bash) [motion overwrites cb]
 bind ^c copy main           # copy to EoL (region)
 bind ^v paste main          # common binding
 bind ^y paste main          # from bash
-
-# transposition
-# ^t for fixing typos immediately
-# M-t for fixing typos later
-# no need to bind word transposition
-bind ^t "m" main    # transpose trailing pair
-bind M-t "m" main     # tranpose cursor with prev
 
 # deletion
 # bind ^h backspace main      # default
@@ -147,8 +134,7 @@ bind ^o zap main            # delete to EoL (region)
 # bind ^b left main       # default
 # bind ^f right main      # defualt
 bind M-b prevword main
-# bind M-f nextword main
-bind M-f "r\>r" main    # regex imp of bash fwd word
+bind M-f nextword main
 # bind ^a home main       # default
 # bind ^e end main        # defualt
 ## between lines
@@ -156,8 +142,6 @@ bind M-f "r\>r" main    # regex imp of bash fwd word
 # bind ^n down main       # default
 bind M-n nextblock main
 bind M-p prevblock main
-bind M-< firstline main     # bash history
-bind M-> lastline main      # bash history
 bind M-a firstline main
 bind M-e lastline main
 
