@@ -5,6 +5,6 @@
     graph = log --decorate --oneline --graph --all
     past = log --decorate --oneline --graph -15 --all
 [core]
-    editor = vim
+    editor = nano
 [pull]
     ff = only
