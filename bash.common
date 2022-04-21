@@ -10,7 +10,7 @@ complete -d cd
 #==========================================================
 
 ## ENVIRONMENT VARS
-export EDITOR=nano
+export EDITOR=vim
 #==========================================================
 
 ## PROMPT STRING
