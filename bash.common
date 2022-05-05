@@ -13,4 +13,10 @@ complete -d cd
 export EDITOR=vim
 #==========================================================
 
+## PYTHON VIRTUAL ENVS
+alias deact='deactivate'
+
+act () {
+    source ~/venvs/"$1"/bin/activate
+}
 #==========================================================
