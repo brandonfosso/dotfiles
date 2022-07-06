@@ -1,0 +1,18 @@
+## ENVIRONMENT VARS
+export EDITOR=nvim
+export PATH="$HOME/scripts:$PATH"
+#==========================================================
+
+## ALIASES
+alias ls='ls --color=auto'
+#==========================================================
+
+## FUNCTIONS
+# fix ssh-agent in tmux
+fixssh() {
+  eval $(tmux show-env -s | grep '^SSH_')
+}
+#==========================================================
+
+# PYTHON
+source ~/venvs/dev/bin/activate
