@@ -8,9 +8,16 @@ alias ls='ls --color=auto'
 #==========================================================
 
 ## FUNCTIONS
+
 # fix ssh-agent in tmux
 fixssh() {
   eval $(tmux show-env -s | grep '^SSH_')
+}
+
+# see who is logged on
+whoson() {
+  local WHO_NO_TMUX=$(who | grep -v tmux | awk '{ print $1 }')
+  echo ${WHO_NO_TMUX} | sort | uniq -c | awk '{ print $2, $1}'
 }
 #==========================================================
 
