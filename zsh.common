@@ -19,6 +19,11 @@ whoson() {
   local WHO_NO_TMUX=$(who | grep -v tmux | awk '{ print $1 }')
   echo ${WHO_NO_TMUX} | sort | uniq -c | awk '{ print $2, $1}'
 }
+
+# pretty print json
+ppjson() {
+  python -m json.tool "$1" | pygmentize -l javascript
+}
 #==========================================================
 
 ## PYTHON
