@@ -1,5 +1,6 @@
 ## ENVIRONMENT VARS
 export EDITOR=nvim
+bindkey -e
 export PATH="$HOME/scripts:$PATH"
 #==========================================================
 
