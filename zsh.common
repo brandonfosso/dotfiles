@@ -33,4 +33,5 @@ source ~/venvs/dev/bin/activate
 
 ## TAB COMPLETION
 autoload -Uz compinit && compinit -u
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 #==========================================================
