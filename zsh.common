@@ -28,7 +28,11 @@ ppjson() {
 #==========================================================
 
 ## PYTHON
-source ~/venvs/dev/bin/activate
+alias dact='deactivate'
+
+act () {
+  source ~/venvs/"$1"/bin/activate
+}
 #==========================================================
 
 ## TAB COMPLETION
