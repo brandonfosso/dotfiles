@@ -39,3 +39,8 @@ act () {
 autoload -Uz compinit && compinit -u
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 #==========================================================
+
+## Word Movement
+autoload -U select-word-style
+select-word-style bash
+#==========================================================
