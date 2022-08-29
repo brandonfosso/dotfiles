@@ -11,8 +11,16 @@ alias ls='ls --color=auto'
 ## FUNCTIONS
 
 # fix ssh-agent in tmux
-fixssh() {
-  eval $(tmux show-env -s | grep '^SSH_')
+fix() {
+  case $1 in
+    ssh)
+      eval $(tmux show-env -s | grep '^SSH_')
+      echo "Fixed SSH in Tmux."
+      ;;
+    *)
+      echo "Nothing to fix."
+      ;;
+  esac
 }
 
 # see who is logged on
