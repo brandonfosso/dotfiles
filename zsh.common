@@ -29,11 +29,6 @@ whoson () {
   echo ${WHO_NO_TMUX} | sort | uniq -c | awk '{ print $2, $1}'
 }
 
-# pretty print json
-ppjson() {
-  python -m json.tool "$1" | pygmentize -l javascript
-}
-
 # move to trash
 trash () {
   mv $1 ~/.Trash/
