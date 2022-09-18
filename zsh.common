@@ -11,7 +11,7 @@ alias ls='ls --color=auto'
 ## FUNCTIONS
 
 # fix ssh-agent in tmux
-fix() {
+fix () {
   case $1 in
     ssh)
       eval $(tmux show-env -s | grep '^SSH_')
@@ -24,7 +24,7 @@ fix() {
 }
 
 # see who is logged on
-whoson() {
+whoson () {
   local WHO_NO_TMUX=$(who | grep -v tmux | awk '{ print $1 }')
   echo ${WHO_NO_TMUX} | sort | uniq -c | awk '{ print $2, $1}'
 }
