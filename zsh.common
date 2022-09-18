@@ -33,6 +33,11 @@ whoson() {
 ppjson() {
   python -m json.tool "$1" | pygmentize -l javascript
 }
+
+# move to trash
+trash () {
+  mv $1 ~/.Trash/
+}
 #==========================================================
 
 ## PYTHON
