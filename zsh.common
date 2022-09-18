@@ -38,8 +38,16 @@ trash () {
 ## PYTHON
 alias dact='deactivate'
 
-act () {
-  source ~/venvs/"$1"/bin/activate
+pact () {
+  if [ -d venvs/"$1" ]
+  then
+    source venvs/"$1"/bin/activate
+  elif [ -d ~/venvs/"$1" ]
+  then
+    source ~/venvs/"$1"/bin/activate
+  else
+    echo No such virtual environment.
+  fi
 }
 #==========================================================
 
