@@ -3,7 +3,6 @@ export EDITOR=nvim
 bindkey -e
 export PATH="$HOME/scripts:$PATH"
 #==========================================================
-# yolo test test test :)
 
 ## ALIASES
 alias ls='ls --color=auto'
