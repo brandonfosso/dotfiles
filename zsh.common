@@ -1,5 +1,5 @@
 ## ENVIRONMENT VARS
-export EDITOR=nano
+export EDITOR=vim
 bindkey -e
 export PATH="$HOME/scripts:$PATH"
 #==========================================================
